@@ -1,35 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/signup.css">
     <title>Sign Up</title>
+    <link rel="icon" type="image/png" href="images/icon.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            min-height: 100vh;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .signup-wrapper {
+            width: 100%;
+            max-width: 98vw;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            display: flex;
+        }
+
+        .signup-left {
+            position: relative;
+            width: 40%;
+            min-width: 320px;
+            background: #11f897;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            padding: 2rem 1.5rem;
+        }
+
+        .signup-left .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(17, 248, 151, 0.85);
+            z-index: 1;
+            border-radius: 0 0 0 20px;
+        }
+
+        .signup-left .content {
+            position: relative;
+            z-index: 2;
+            text-align: left;
+        }
+
+        .signup-left .logo {
+            width: 48px;
+            height: 48px;
+            background: #fff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .signup-left .logo span {
+            color: #11f897;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .signup-left .desc {
+            font-size: 1.1rem;
+            margin-bottom: 0;
+            color: #eafaf1;
+        }
+
+        .signup-left .bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            border-radius: 0 0 0 20px;
+        }
+
+        .signup-right {
+            width: 60%;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .signup-title {
+            font-weight: 700;
+            font-size: 2rem;
+            margin-bottom: 1.2rem;
+            color: #222;
+        }
+
+        .social-btns {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .social-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            border: none;
+            border-radius: 8px;
+            padding: 0.6rem 0;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .social-btn.google {
+            background: #fff;
+            color: #111;
+            border: 1px solid #eee;
+        }
+
+        .social-btn.facebook {
+            background: #fff;
+            color: #111;
+            border: 1px solid #eee;
+        }
+
+        .or-divider {
+            text-align: center;
+            margin: 1.2rem 0 1.2rem 0;
+            color: #aaa;
+            font-weight: 500;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            padding: 0.7rem 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e1e1e1;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            border-color: #11f897;
+            box-shadow: 0 0 0 0.1rem rgba(17, 248, 151, 0.15);
+        }
+
+        .btn-signup {
+            background: #11f897;
+            color: #111;
+            border: none;
+            border-radius: 8px;
+            padding: 0.8rem;
+            font-weight: 600;
+            width: 100%;
+            margin-top: 0.5rem;
+            transition: background 0.2s;
+        }
+
+        .btn-signup:hover {
+            background: #0ed184;
+        }
+
+        .form-link {
+            display: block;
+            text-align: right;
+            margin-top: 0.5rem;
+            color: #888;
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+
+        .form-link:hover {
+            text-decoration: underline;
+            color: #11f897;
+        }
+
+        @media (max-width: 900px) {
+            .signup-wrapper {
+                flex-direction: column;
+                width: 98vw;
+            }
+
+            .signup-left,
+            .signup-right {
+                width: 100%;
+                min-width: unset;
+                border-radius: 0;
+            }
+
+            .signup-left {
+                min-height: 220px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-
-<div class="login-container">
-    <div class="card">
-        <h2>Sign Up</h2>
-        <form action="#">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" required>
-
-            <button type="submit">Sign Up</button>
-
-            <p>Have an account? <a href="login.html" style="text-decoration: underline; font-weight: bold;">Login</a></p>
-        </form>
+    <div class="signup-wrapper">
+        <!-- Left Side -->
+        <div class="signup-left">
+            <img src="images/bgg.jpg" alt="Background" class="bg-img">
+            <div class="overlay"></div>
+            <div class="content">
+                <div class="logo mb-3"><img src="images/icon.png" alt="Logo"
+                        style="width: 48px; height: 48px; border-radius: 12px;"></div>
+            </div>
+        </div>
+        <!-- Right Side -->
+        <div class="signup-right">
+            <div class="signup-title">Create Account</div>
+            <div class="social-btns mb-2">
+                <button class="social-btn google" type="button">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
+                        alt="Google" width="22" height="22">
+                    Signup with Google
+                </button>
+                <button class="social-btn facebook" type="button">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg"
+                        alt="Facebook" width="22" height="22">
+                    Signup with Facebook
+                </button>
+            </div>
+            <div class="or-divider">&mdash; OR &mdash;</div>
+            <form method="POST" action="{{ url_for('signup') }}" autocomplete="off">
+                <input type="text" class="form-control" name="name" placeholder="Full Name" required>
+                <input type="email" class="form-control" name="email" placeholder="Mail Address" required>
+                <div style="position:relative;">
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password"
+                        required>
+                    <span style="position:absolute;top:50%;right:1rem;transform:translateY(-50%);cursor:pointer;"
+                        onclick="togglePassword()">
+                        <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#bbb"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.133 13.133 0 0 1 1.172 8z" />
+                            <path
+                                d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm0 1a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z" />
+                        </svg>
+                    </span>
+                </div>
+                <input type="text" class="form-control" name="username" placeholder="Username" required>
+                <input type="tel" class="form-control" name="phone" placeholder="Phone Number" required>
+                <button type="submit" class="btn btn-signup">Create Account</button>
+                <a href="#" class="form-link">Forget Password</a>
+            </form>
+        </div>
     </div>
-</div>
-
+    <script>
+        function togglePassword() {
+            var pwd = document.getElementById('password');
+            var icon = document.getElementById('eyeIcon');
+            if (pwd.type === 'password') {
+                pwd.type = 'text';
+                icon.style.fill = '#11f897';
+            } else {
+                pwd.type = 'password';
+                icon.style.fill = '#bbb';
+            }
+        }
+    </script>
 </body>
+
 </html>

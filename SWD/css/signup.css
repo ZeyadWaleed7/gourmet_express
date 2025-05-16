@@ -1,14 +1,5 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-image: url(../images/bgg.jpg);
-    background-size: cover;
-    background-position: center;
+    background-color: #000000;
 }
 
 .login-container {
